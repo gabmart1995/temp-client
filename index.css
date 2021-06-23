@@ -1,0 +1,110 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css");
+
+:root {
+  --main-navbar: #3c0636a3;
+  --youtube-color: #ff0000;
+  --twitter-color: #6CADDE;
+  --facebook-color: #4267B2;
+  --instagram-color: #d8500e;
+  --button-primary: #430a3c;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+html body {
+  background: url('images/background-cinex.webp')  no-repeat center fixed;
+  height: 100%;
+  min-height: 100vh;
+  background-size: cover;
+}
+
+main {
+  background: rgba(0, 0, 0, 0.7) !important;
+}
+
+.bg-light {
+  background: var(--main-navbar) !important
+}
+
+.logo {
+  height: 60px;
+}
+
+h1, p, article, h2, label, h3 {
+  color: #fff
+}
+
+h1 {
+  text-transform: capitalize;
+}
+
+
+table > tbody {
+  vertical-align: middle !important;
+}
+
+#row-movies .row  {
+  margin-bottom: 20px;
+}
+
+.card {
+  width: 149px;
+  height: 220px;
+  cursor: pointer;
+}
+
+.img-card {
+  width: 100%;
+  height: 100%;
+}
+
+.background {
+  background: lightgray;
+  width: 100%;
+  height: 100%;
+}
+
+.navbar-nav > li a {
+  color: #fff !important;
+  text-align: center;
+}
+
+.infopie {
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  text-align: center;
+}
+
+.icon {
+  color: white;
+  font-size: 40px;
+  transition: color 0.3s ease;
+  cursor: pointer;
+}
+
+.youtube:hover {
+  color: var(--youtube-color);
+}
+
+.twitter:hover {
+  color: var(--twitter-color);
+}
+
+.facebook:hover {
+  color: var(--facebook-color);
+}
+
+.instagram:hover {
+  color: var(--instagram-color);
+}
+
+@media screen and (min-width: 768px) {
+
+  .navbar-nav > li a {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+  }
+}

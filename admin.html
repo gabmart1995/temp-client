@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es-VE">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="">
+    <title></title>
+  </head>
+  <body>
+    <!-- prototipo de carga de peliculas -->
+    <h2 class="mb-4 mt-5">Formulario de carga de peliculas</h2>
+
+    <form name="load-movies">
+      <div class="row form-row">
+        <div class="col-12 d-flex flew-row justify-content-center mb-4 mt-5">
+          <div class="card" style="cursor: pointer" onclick="document.querySelector('#file').click()">
+            <div id="card-default" class="background" style="height: 100%; width: 100%;">
+              <div class="d-flex justify-content-center align-items-center"  style="height: 100%; width: 100%;" >
+                <i class="bi bi-image" style="font-size: 40px"></i>
+              </div>
+            </div>
+            <img id="output" class="img-card" />
+          </div>
+          <input type="file" value="imagen" id="file" hidden onchange="handleChangeImg( event )" />
+        </div>
+        <div class="col-12 col-md-6 mb-md-3">
+          <label for="" class="form-label">Formato:</label>
+          <select class="form-control" name="formato">
+            <option value="" selected>Seleccione</option>
+            <option value="images/2d2des.png">2dES</option>
+            <option value="images/3DES.png">3d</option>
+            <option value="images/2D3DIN.png">2d/3dIN</option>
+            <option value="images/2DIN.png">2dIN</option>
+            <option value="images/3DES.png">3dES</option>
+            <option value="imeges/3DESIN.png">3dESIN</option>
+          </select>
+        </div>
+        <div class="col-12 col-md-6 mb-md-3">
+          <label for="" class="form-label">Enlace del Trailer:</label>
+          <input type="url" name="url" class="form-control" />
+        </div>
+        <div class="col-12 mb-md-3">
+          <label for="" class="form-label">Sinopsis:</label>
+          <textarea name="sinopsis" class="form-control"></textarea>
+        </div>
+        <div class="col-12 text-center p-5">
+          <button type="button" onclick="resetForm()" class="btn btn-secondary mr-2" name="button">
+            Cancelar
+          </button>
+          <button type="submit" class="btn btn-primary" name="button">
+            Cargar Pelicula
+          </button>
+        </div>
+      </div>
+    </form>
+  </body>
+</html>

@@ -7,6 +7,11 @@
   --facebook-color: #4267B2;
   --instagram-color: #d8500e;
   --button-primary: #3c0636;
+  --width-sidebar: 300px;
+  --padding-sidebar: 10px;
+  --bg-color-sidebar: rgb(52, 52, 52);
+  --hover-color-sidebar: rgb(23, 23, 23);
+  --sidebar-collapsed: 50px;
 }
 
 .pointer {

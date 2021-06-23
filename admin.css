@@ -2,6 +2,9 @@
 
 html body {
   background: #fff4fb !important;
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
 }
 
 .bg-light {
@@ -12,7 +15,7 @@ main {
   background: initial !important;
 }
 
-form input, select {
+form input, select, textarea {
   border-radius: 10px !important;
   height: 50px;
   padding-left: 20px !important;
@@ -29,4 +32,34 @@ form button {
 
 label, h2 {
   color: #000;
+}
+
+/* sidebar */
+aside {
+  background: var(--bg-color-sidebar);
+  color: white;
+  height: calc( 100% - 75px );
+  position: fixed;
+  top: 75px;
+  left: 0;
+  width: calc( 100% / 12 );
+}
+
+aside ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+aside ul li {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+aside ul li i {
+  font-size: 24px;
+}
+
+aside ul li span {
+  font-size: 13px;
 }

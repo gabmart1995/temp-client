@@ -6,7 +6,7 @@
   --twitter-color: #6CADDE;
   --facebook-color: #4267B2;
   --instagram-color: #d8500e;
-  --button-primary: #430a3c;
+  --button-primary: #3c0636;
 }
 
 .pointer {
@@ -26,6 +26,12 @@ main {
 
 .bg-light {
   background: var(--main-navbar) !important
+}
+
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:focus  {
+  background: var(--button-primary);
+  border-color: var(--button-primary);
+  box-shadow: none !important;
 }
 
 .logo {

@@ -1,0 +1,32 @@
+@import './index.css';
+
+html body {
+  background: #fff4fb !important;
+}
+
+.bg-light {
+  background: var(--button-primary) !important;
+}
+
+main {
+  background: initial !important;
+}
+
+form input, select {
+  border-radius: 10px !important;
+  height: 50px;
+  padding-left: 20px !important;
+}
+
+form button {
+  width: 150px;
+  border-radius: 10px;
+}
+
+.btn-primary {
+  background: var(--button-primary);
+}
+
+label, h2 {
+  color: #000;
+}

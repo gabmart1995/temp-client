@@ -4,54 +4,88 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <link rel="stylesheet" href="">
-    <title></title>
+    <title>Admin</title>
+    <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="admin.css">
   </head>
   <body>
-    <!-- prototipo de carga de peliculas -->
-    <h2 class="mb-4 mt-5">Formulario de carga de peliculas</h2>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+		  <div class="container-fluid ps-md-5 pe-md-5">
+				<img src="images/xlogo.png" alt="logo-cinex" class="logo">
+				<div
+					class="navbar-toggler"
+					type="button"
+					data-bs-toggle="collapse"
+					data-bs-target="#navbarSupportedContent"
+					aria-controls="navbarSupportedContent"
+					aria-expanded="false"
+					aria-label="Toggle navigation"
+				>
+					<i class="bi bi-list" style="color: white; font-size: 24px;"></i>
+		    </div>
 
-    <form name="load-movies">
-      <div class="row form-row">
-        <div class="col-12 d-flex flew-row justify-content-center mb-4 mt-5">
-          <div class="card" style="cursor: pointer" onclick="document.querySelector('#file').click()">
-            <div id="card-default" class="background" style="height: 100%; width: 100%;">
-              <div class="d-flex justify-content-center align-items-center"  style="height: 100%; width: 100%;" >
-                <i class="bi bi-image" style="font-size: 40px"></i>
+		    <div class="collapse navbar-collapse justify-content-md-end" id="navbarSupportedContent">
+		      <ul class="navbar-nav mb-2 mb-lg-0">
+		        <li class="nav-item">
+		          <a class="nav-link" href="login.html" tabindex="-1">
+                <i class="bi bi-person-circle me-2"></i>
+                Pedro Sanchez
+              </a>
+		        </li>
+		      </ul>
+		    </div>
+		  </div>
+		</nav>
+
+    <main class="container">
+      <!-- prototipo de carga de peliculas content -->
+      <h2 class="mb-4 mt-5">Formulario de carga de peliculas</h2>
+
+      <form name="load-movies">
+        <div class="row form-row">
+          <div class="col-12 d-flex flew-row justify-content-center mb-4 mt-5">
+            <div class="card" style="cursor: pointer" onclick="document.querySelector('#file').click()">
+              <div id="card-default" class="background" style="height: 100%; width: 100%;">
+                <div class="d-flex justify-content-center align-items-center"  style="height: 100%; width: 100%;" >
+                  <i class="bi bi-image" style="font-size: 40px"></i>
+                </div>
               </div>
+              <img id="output" class="img-card" />
             </div>
-            <img id="output" class="img-card" />
+            <input type="file" value="imagen" id="file" hidden onchange="handleChangeImg( event )" />
           </div>
-          <input type="file" value="imagen" id="file" hidden onchange="handleChangeImg( event )" />
+          <div class="col-12 col-md-6 mb-md-3">
+            <label for="" class="form-label">Formato:</label>
+            <select class="form-control" name="formato">
+              <option value="" selected>Seleccione</option>
+              <option value="images/2d2des.png">2dES</option>
+              <option value="images/3DES.png">3d</option>
+              <option value="images/2D3DIN.png">2d/3dIN</option>
+              <option value="images/2DIN.png">2dIN</option>
+              <option value="images/3DES.png">3dES</option>
+              <option value="imeges/3DESIN.png">3dESIN</option>
+            </select>
+          </div>
+          <div class="col-12 col-md-6 mb-md-3">
+            <label for="" class="form-label">Enlace del Trailer:</label>
+            <input type="url" name="url" class="form-control" />
+          </div>
+          <div class="col-12 mb-md-3">
+            <label for="" class="form-label">Sinopsis:</label>
+            <textarea name="sinopsis" class="form-control"></textarea>
+          </div>
+          <div class="col-12 text-center p-5">
+            <button type="button" onclick="resetForm()" class="btn btn-secondary me-3" name="button">
+              Cancelar
+            </button>
+            <button type="submit" class="btn btn-primary" name="button">
+              Cargar Pelicula
+            </button>
+          </div>
         </div>
-        <div class="col-12 col-md-6 mb-md-3">
-          <label for="" class="form-label">Formato:</label>
-          <select class="form-control" name="formato">
-            <option value="" selected>Seleccione</option>
-            <option value="images/2d2des.png">2dES</option>
-            <option value="images/3DES.png">3d</option>
-            <option value="images/2D3DIN.png">2d/3dIN</option>
-            <option value="images/2DIN.png">2dIN</option>
-            <option value="images/3DES.png">3dES</option>
-            <option value="imeges/3DESIN.png">3dESIN</option>
-          </select>
-        </div>
-        <div class="col-12 col-md-6 mb-md-3">
-          <label for="" class="form-label">Enlace del Trailer:</label>
-          <input type="url" name="url" class="form-control" />
-        </div>
-        <div class="col-12 mb-md-3">
-          <label for="" class="form-label">Sinopsis:</label>
-          <textarea name="sinopsis" class="form-control"></textarea>
-        </div>
-        <div class="col-12 text-center p-5">
-          <button type="button" onclick="resetForm()" class="btn btn-secondary mr-2" name="button">
-            Cancelar
-          </button>
-          <button type="submit" class="btn btn-primary" name="button">
-            Cargar Pelicula
-          </button>
-        </div>
-      </div>
-    </form>
+      </form>
+    </main>
+    <script type="text/javascript" src="admin.js"></script>
   </body>
 </html>

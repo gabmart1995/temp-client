@@ -40,13 +40,13 @@
 }
 
 .card button {
-  border-radius: 25px;
+  border-radius: 10px;
   font-size: 18px;
   height: 50px;
 }
 
 .card input {
-  border-radius: 25px;
+  border-radius: 10px;
   height: 50px;
   padding-left: 20px;
 }
@@ -55,11 +55,7 @@
   width: 90%;
 }
 
-.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:focus  {
-  background: var(--button-primary);
-  border-color: var(--button-primary);
-  box-shadow: none !important;
-}
+
 
 
 /*.loader{

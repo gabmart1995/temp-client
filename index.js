@@ -1,59 +1,35 @@
-function loadMovies( $event ) {
-  $event.preventDefault();
+function openModalYoutube( idPelicula ) {
 
-  const formData = new FormData( form );
+  let pelicula = peliculas.find( ( pelicula, index ) => index === idPelicula )
 
-  let url = formData.get('url') || '';
+  document.querySelector('.modal-title').innerText = pelicula.titulo.toUpperCase();
+  const iframe = document.querySelector('.modal-body').querySelector('iframe');
 
-  if ((/^https:\/\/www.youtube.com/).test( url )) {
-    url = 'https://www.youtube.com/embed/' + url.split('v=')[1];
-  }
+  iframe.setAttribute( 'src', pelicula.url );
 
-  const data = {
-    formato: formData.get('formato'),
-    imagen: image,
-    sinopsis: formData.get('sinopsis'),
-    url
-  }
+  console.log( iframe );
 
-  peliculas.push( data );
-
-  renderList();
-  resetForm();
+  modalInstance.toggle();
 }
 
-function resetForm() {
-  output.style.display = 'none';
-  cardDefault.style.display = '';
+function setDimensionsVideo() {
 
-  form.reset();
-}
+  console.log('dimensionando...');
 
-function handleChangeImg( $event ) {
+  const modalBody = document.querySelector('.modal-body');
+  const iframe = modalBody.querySelector('iframe');
 
-  const file = $event.target.files[0];
-  const path  = $event.target.value;
-  const types = ['image/jpeg', 'image/png'];
-  const reader = new FileReader();
+  if ( !window.matchMedia('(max-width: 768px)').matches ) {
+    iframe.setAttribute( 'height', ( modalBody.offsetHeight )  );
+    iframe.setAttribute( 'width', ( modalBody.offsetWidth - 250 ) );
 
-  if ( !types.includes( file.type ) ) {
-    return;
+  } else {
+    iframe.setAttribute( 'height', ( modalBody.offsetHeight )  );
+    iframe.setAttribute( 'width', ( modalBody.offsetWidth  - 5 ) );
+
   }
 
-  reader.onload = ( $imgEvent ) => {
-
-    let base64Img = $imgEvent.target.result;
-
-    // console.log({ base64Img, $imgEvent });
-
-    output.style.display = '';
-    cardDefault.style.display = 'none';
-
-    output.src = base64Img;
-    image = base64Img;
-  }
-
-  reader.readAsDataURL( file );
+  // console.log( iframe );
 }
 
 function renderList() {
@@ -62,16 +38,19 @@ function renderList() {
   row.innerHTML = peliculas.map(( pelicula, index ) => (`
       <div class="row align-items-center">
         <div class="col-12 col-xl-2 text-center mb-4 mb-xl-0">
-          <img src=${ pelicula.imagen } alt="unidos_${index}" height="220" width="149" class="img-responsive">
+          <img src=${pelicula.imagen} alt="unidos_${index}" height="220" width="149" class="img-responsive">
         </div>
         <div class="col-12 col-xl-2 text-center mb-4 mb-xl-0">
           <img src=${ pelicula.formato } alt="2d2" style="border-radius: 5px;" class="img-responsive" height="60" width="75">
         </div>
         <div class="col-12 col-xl-4 mb-4 mb-xl-0">
-          <article class="text-md-justify text-center">${ pelicula.sinopsis }</article>
+          <article class="text-md-justify text-center">${pelicula.sinopsis}</article>
         </div>
         <div class="col-12 col-xl-4 text-center">
-          <iframe width="250" height="200" src=${ pelicula.url } frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <button onclick="openModalYoutube(${index})" class="btn btn-primary">
+            <i class="bi bi-film me-2"></i>
+            Ver trailer
+          </button>
         </div>
       </div>
   `)).join('');
@@ -79,18 +58,21 @@ function renderList() {
 
 let peliculas = [
   {
+    titulo: 'Unidos',
     imagen: 'images/UNIDOS.png',
     sinopsis: 'Ambientado en un mundo de fantasía suburbana, dos hermanos elfos adolescentes, Ian y Barley Lightfood, se embarcan en una aventura en la que se proponen descubrir si existe aún algo de magia en el mundo que les permita pasar un último día con su padre, que falleció cuando ellos eran aún muy pequeños como para poder recordarlo.',
     formato: 'images/2d2des.png',
     url: 'https://www.youtube.com/embed/jk26pDvHtNw'
   },
   {
+    titulo: 'Unidos',
     imagen: 'images/UNIDOS.png',
     sinopsis: 'Ambientado en un mundo de fantasía suburbana, dos hermanos elfos adolescentes, Ian y Barley Lightfood, se embarcan en una aventura en la que se proponen descubrir si existe aún algo de magia en el mundo que les permita pasar un último día con su padre, que falleció cuando ellos eran aún muy pequeños como para poder recordarlo.',
     formato: 'images/2d2des.png',
     url: 'https://www.youtube.com/embed/jk26pDvHtNw'
   },
   {
+    titulo: 'Unidos',
     imagen: 'images/UNIDOS.png',
     sinopsis: 'Ambientado en un mundo de fantasía suburbana, dos hermanos elfos adolescentes, Ian y Barley Lightfood, se embarcan en una aventura en la que se proponen descubrir si existe aún algo de magia en el mundo que les permita pasar un último día con su padre, que falleció cuando ellos eran aún muy pequeños como para poder recordarlo.',
     formato: 'images/2d2des.png',
@@ -98,18 +80,11 @@ let peliculas = [
   }
 ];
 
-let image = null;
-
-const output = document.querySelector('#output');
-const cardDefault = document.querySelector('#card-default');
-
 document.addEventListener( 'DOMContentLoaded', () => {
-  // output.style.display = 'none';
-  // cardDefault.style.display = '';
-
   renderList();
 });
 
-// const form = document.querySelector('form[name="load-movies"]');
+const modalInstance = new bootstrap.Modal( document.querySelector('#exampleModal') );
 
-// form.addEventListener( 'submit', loadMovies );
+document.querySelector('#exampleModal').addEventListener( 'shown.bs.modal', setDimensionsVideo )
+window.onresize = setDimensionsVideo;  // cambia las dimensiones para cada dispositivo

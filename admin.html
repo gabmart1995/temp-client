@@ -33,32 +33,56 @@
                 Pedro Sanchez
               </a>
 		        </li>
+            <li class="pointer text-center d-block d-xl-none">
+              <a href="#" class="nav-link">
+                <i class="bi bi-house"></i>
+                <span>Inicio</span>
+              </a>
+            </li>
+            <li class="pointer text-center d-block d-xl-none">
+              <a href="#" class="nav-link">
+                <i class="bi bi-film"></i>
+                <span>Peliculas</span>
+              </a>
+            </li>
+            <li class="pointer text-center d-block d-xl-none">
+              <a href="#" class="nav-link">
+                <i class="bi bi-gear-wide"></i>
+                <span>Configuracion</span>
+              </a>
+            </li>
+            <li class="pointer text-center d-block d-xl-none">
+              <a class="nav-link" href="/cinex/login.html">
+                <i class="bi bi-box-arrow-left"></i>
+                <span>Salir</span>
+              </a>
+            </li>
 		      </ul>
 		    </div>
 		  </div>
 		</nav>
 
     <div class="row">
-      <div class="col-md-1 col-12">
-        <!-- menu lateral -->
-        <aside class="d-md-block d-none">
+      <!-- menu lateral md -->
+      <div class="col-md-1 col-12 d-xl-block d-none">
+        <aside>
           <div class="h-100 d-flex flex-column justify-content-between">
             <ul>
-              <li class="text-center d-flex flex-column justify-content-center">
+              <li class="pointer text-center d-flex flex-column justify-content-center">
                 <i class="bi bi-house"></i>
                 <span>Inicio</span>
               </li>
-              <li class="text-center d-flex flex-column justify-content-center">
+              <li class="pointer text-center d-flex flex-column justify-content-center">
                 <i class="bi bi-film"></i>
                 <span>Peliculas</span>
               </li>
-              <li class="text-center d-flex flex-column justify-content-center">
+              <li class="pointer text-center d-flex flex-column justify-content-center">
                 <i class="bi bi-gear-wide"></i>
                 <span>Configuracion</span>
               </li>
             </ul>
             <ul>
-              <li class="text-center d-flex flex-column justify-content-center">
+              <li class="pointer text-center d-flex flex-column justify-content-center" onclick="location.href = '/cinex/login.html'">
                 <i class="bi bi-box-arrow-left"></i>
                 <span>Salir</span>
               </li>
@@ -66,10 +90,10 @@
           </div>
         </aside>
       </div>
-      <div class="col-md-11 col-12 d-flex justify-content-center">
+      <div class="col-xl-11 col-12 d-flex justify-content-center">
         <!-- infomacion principa -->
         <main class="container m-2">
-          <h2 class="mb-4 mt-4">Formulario de carga de peliculas</h2>
+          <h2 class="mb-4 mt-4">Peliculas</h2>
 
           <form name="load-movies">
             <div class="row form-row">
@@ -96,16 +120,16 @@
                   <option value="imeges/3DESIN.png">3dESIN</option>
                 </select>
               </div>
-              <div class="col-12 col-md-6 mb-md-3">
+              <div class="col-12 col-md-6 mb-md-3 mt-3 mt-md-0">
                 <label for="" class="form-label">Enlace del Trailer:</label>
                 <input type="url" name="url" class="form-control" />
               </div>
-              <div class="col-12 mb-md-3">
+              <div class="col-12 mb-md-3 mt-3 mt-md-0">
                 <label for="" class="form-label">Sinopsis:</label>
                 <textarea name="sinopsis" class="form-control"></textarea>
               </div>
               <div class="col-12 text-center p-5">
-                <button type="button" onclick="resetForm()" class="btn btn-secondary me-md-3 mb-2 mb-md-0" name="button">
+                <button type="button" onclick="resetForm()" class="btn btn-secondary me-sm-3 mb-2 mb-sm-0" name="button">
                   Cancelar
                 </button>
                 <button type="submit" class="btn btn-primary" name="button">
@@ -117,8 +141,6 @@
         </main>
       </div>
     </div>
-
-
     <script type="text/javascript" src="admin.js"></script>
   </body>
 </html>

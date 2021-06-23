@@ -16,9 +16,8 @@ function loadMovies( $event ) {
     url
   }
 
-  peliculas.push( data );
+  console.log( data );
 
-  renderList();
   resetForm();
 }
 
@@ -59,6 +58,8 @@ function handleChangeImg( $event ) {
 const output = document.querySelector('#output');
 const cardDefault = document.querySelector('#card-default');
 const form = document.querySelector('form[name="load-movies"]');
+
+let image = null;
 
 form.addEventListener( 'submit', loadMovies );
 

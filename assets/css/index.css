@@ -24,7 +24,7 @@
 }
 
 html body {
-  background: url('images/background-cinex.webp')  no-repeat center fixed;
+  background: url('../../images/background-cinex.webp')  no-repeat center fixed;
   height: 100%;
   min-height: 100vh;
   background-size: cover;

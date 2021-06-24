@@ -13,10 +13,16 @@ function loadMovies( $event ) {
     formato: formData.get('formato'),
     imagen: image,
     sinopsis: formData.get('sinopsis'),
-    url
+    url,
+    titulo: 'prueba'
   }
 
-  console.log( data );
+  let peliculas = JSON.parse( sessionStorage.getItem('peliculas'));
+  peliculas.push( data );
+
+  sessionStorage.setItem('peliculas', JSON.stringify( peliculas ));
+
+  toastInstances[0].show();
 
   resetForm();
 }
@@ -60,10 +66,17 @@ const cardDefault = document.querySelector('#card-default');
 const form = document.querySelector('form[name="load-movies"]');
 
 let image = null;
+let toastInstances = [];
 
 form.addEventListener( 'submit', loadMovies );
 
 document.addEventListener( 'DOMContentLoaded', () => {
   output.style.display = 'none';
   cardDefault.style.display = '';
+
+  const toastsNodes = Array.from( document.querySelectorAll('.toast') );
+
+  toastsNodes.forEach((element, index) => {
+    toastInstances.push( new bootstrap.Toast( element, { delay: 2500 } ) );
+  });
 });

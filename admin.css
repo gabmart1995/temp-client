@@ -34,6 +34,12 @@ label, h2 {
   color: #000;
 }
 
+.toast-fixed {
+  position: fixed;
+  top: 65px;
+  right: 0
+}
+
 /* sidebar */
 aside {
   background: var(--bg-color-sidebar);

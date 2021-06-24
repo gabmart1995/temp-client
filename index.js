@@ -35,6 +35,15 @@ function setDimensionsVideo() {
 function renderList() {
   const row = document.querySelector('#row-movies');
 
+  if ( sessionStorage.getItem('peliculas') ) {
+    peliculas = JSON.parse( sessionStorage.getItem('peliculas'));
+
+  } else {
+    console.log('aqui');
+    sessionStorage.setItem('peliculas', JSON.stringify( peliculas ) );
+
+  }
+
   row.innerHTML = peliculas.map(( pelicula, index ) => (`
       <div class="row align-items-center">
         <div class="col-12 col-xl-2 text-center mb-4 mb-xl-0">
